@@ -1,5 +1,3 @@
-/* вариант 14 */
-
 #include <stdio.h>
 #include <math.h>
 
@@ -8,14 +6,18 @@
 #endif
 
 /**
- * @brief прототипы функции
- * 
+ * @brief прототипы функции А
  * @param x - константа x
  * @param y - константа y
  * @param z - константа z
- * 
-*/
+ */
 double get_sol_a(double x, double y, double z);
+/**
+ * @brief прототипы функции B
+ * @param x - константа x
+ * @param y - константа y
+ * @param z - константа z
+ */
 double get_sol_b(double x, double y, double z);
 
 /**
@@ -24,7 +26,6 @@ double get_sol_b(double x, double y, double z);
  * @param y - константа y
  * @param z - константа z
  */
-
 int main(void) 
 {
     /*объявляем константы*/
@@ -46,7 +47,6 @@ int main(void)
  * @param y - константа y
  * @param z - константа z
  */
-
 double get_sol_a(double x, double y, double z)
 {
     return ((double)pow(z, 2) * x + (double)pow(EXP, x * -1) * cos(y * x)) / (y * x - (double)pow(EXP, x * -1) * sin(y * x) + 1);
