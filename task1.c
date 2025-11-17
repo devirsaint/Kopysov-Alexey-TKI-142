@@ -21,15 +21,11 @@ double get_sol_a(double x, double y, double z);
 double get_sol_b(double x, double y, double z);
 
 /**
- * @brief основная функцыя
- * @param x - константа x
- * @param y - константа y
- * @param z - константа z
+ * @brief точка входа в программу
  */
 int main(void) 
 {
     /*объявляем константы*/
-
     const double x = 0.3;
     const double y = 2.9;
     const double z = 0.5;
@@ -39,7 +35,6 @@ int main(void)
     printf("B = %.4f \n", get_sol_b(x, y, z));
     return 0;
 }
-
 
 /**
  * @brief функция для вычисления A
@@ -58,7 +53,6 @@ double get_sol_a(double x, double y, double z)
  * @param y - константа y
  * @param z - константа z
  */
-
 double get_sol_b(double x, double y, double z)
 {
     return (double)exp(2 * x) * log(z + x) - (double)pow(y, 3 * x) * log(y - x);
