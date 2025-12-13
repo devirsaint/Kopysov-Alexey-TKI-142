@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <float.h>
 
 /**
  * @brief Считывает значение, введенное с клавиатуры с проверкой ввода
@@ -43,13 +44,16 @@ int main(void) {
 
   printf("Конечное значение: ");
   double end = get_value();
-
+  if (start > end) {
+    printf("Конечное значение должно быть больше начального\n");
+    exit(1);
+  }
   printf("Шаг: ");
   double step = get_value();
 
   is_step(step);
 
-  for (double x = start; x < end + 1e-12; x += step) {
+  for (double x = start; x < end + DBL_EPSILON; x += step) {
     if (is_dof(x)) {
       printf("x = %.2lf, y = %.4lf\n", x, get_y(x));
     } else {
@@ -69,7 +73,7 @@ double get_value() {
 }
 
 void is_step(const double step) {
-  if (step <= 1e-12) {
+  if (step <= DBL_EPSILON) {
     printf("Шаг должен быть больше 0\n");
     exit(1);
   }
@@ -77,7 +81,7 @@ void is_step(const double step) {
 
 bool is_dof(const double x) 
 { 
-    return ((x <= 1) && (fabs(cos(x)) > 1e-12));
+    return ((x <= 1) && (fabs(cos(x)) > DBL_EPSILON));
 }
 
 double get_y(const double x) 
