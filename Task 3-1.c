@@ -1,4 +1,4 @@
-// Var 14 
+// Variant 14 
 #include <locale.h> 
 #include <math.h>
 #include <stdbool.h>
