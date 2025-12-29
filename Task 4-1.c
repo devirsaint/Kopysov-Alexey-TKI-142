@@ -4,6 +4,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+enum {
+    fill_random = 1,
+    fill_manual = 2,
+};
+
+enum {
+    sum_1_dig = 1, 
+    reverse_ = 2, 
+    find_last_pair_ = 3 
+};
+
 /**
  * @brief Считывает введённое значение с клавиатуры
  * @return Считанное значение
@@ -88,19 +99,19 @@ int main(void) {
     is_array(arr);
 
     printf("Способ заполнения\n");
-    printf("1 - Заполнить случайными числами\n");
-    printf("2 - Заполнить вручную\n");
-    printf("Выбор 1/2: ");
+    printf("%d - Заполнить случайными числами\n", fill_random);
+    printf("%d - Заполнить вручную\n", fill_manual);
+    printf("Выбор %d/%d: ", fill_random, fill_manual);
 
     int mode = get_val();
 
     switch (mode) {
-        case 1: {
+        case fill_random: {
             printf("Random\n");
             fill_random(len, arr);
             break;
         }
-        case 2: {
+        case fill_manual: {
             printf("Manual\n");
             fill_manual(len, arr);
             break;
@@ -115,11 +126,11 @@ int main(void) {
     printf("\nСформированный массив:\n");
     print_arr(arr, len);
 
-    printf("1 - Найти сумму элементов, значения которых состоят из одной цифры\n");
-    printf("2 - Заменить элементы массива между минимальным и максимальным на те же элементы в обратном порядке\n");
-    printf("3 - Найти номер последней пары соседних элементов с одинаковыми знаками, произведение которых меньше заданного числа\n");
+    printf("%d - Найти сумму элементов, значения которых состоят из одной цифры\n", sum_1_dig);
+    printf("%d - Заменить элементы массива между минимальным и максимальным на те же элементы в обратном порядке\n", reverse_);
+    printf("%d - Найти номер последней пары соседних элементов с одинаковыми знаками, произведение которых меньше заданного числа\n", find_last_pair_);
 
-    printf("Выбор 1/2/3: ");
+    printf("Выбор %d/%d/%d: ", sum_1_dig, reverse_, find_last_pair_);
 
     int task = get_val();
 
