@@ -21,14 +21,14 @@ void is_array(const int *arr);
  * @param len Длина массива
  * @param arr Массив, который заполняет
  */
-void fill_manual(int len, int *array);
+void fill_manual(const int len, int *array);
 
 /**
  * @brief Заполняет массив случаныйми элементами из заданного промежутка
  * @param len Длина массива
  * @param arr Массив, который заполняет
  */
-void fill_random(int len, int *array);
+void fill_random(const int len, int *array);
 
 /**
  * @brief Функция вывода массива
@@ -154,7 +154,7 @@ void is_array(const int *arr) {
   }
 }
 
-void fill_manual(int len, int *array) {
+void fill_manual(const int len, int *array) {
     printf("Введите каждый элемент массива (%d):\n", len);
     for (int i = 0; i < len; i++) {
         printf("Элемент %d: ", i);
@@ -162,7 +162,7 @@ void fill_manual(int len, int *array) {
     }
 }
 
-void fill_random(int len, int *arr) {
+void fill_random(const int len, int *arr) {
     printf("\nДиапазон для случайных чисел\n");
 
     printf("\nМинимальное значение:\n");
