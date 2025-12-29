@@ -135,13 +135,13 @@ int main(void) {
     int task = get_val();
 
     switch (task) {
-        case 1: {
+        case sum_1_dig: {
             sum_1dig(arr, len);
         }
-        case 2: {
+        case reverse_: {
             reverse_arr(arr, len);
         }
-        case 3: {
+        case find_last_pair_: {
             last_pair(arr, len);
         }
     }
