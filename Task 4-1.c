@@ -4,11 +4,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * @enum Для выбора типа заполнения
+ */
 enum {
     fill_random = 1,
     fill_manual = 2,
 };
 
+/**
+ * @enum Для выбора операции
+ */
 enum {
     sum_1_dig = 1, 
     reverse_ = 2, 
@@ -189,7 +195,7 @@ void fill_random(const size_t len, int *arr) {
     
     printf("Диапазон [%d; %d]...\n", min, max);
     
-    for (int i = 0; i < len; i++) {
+    for (size_t i = 0; i < len; i++) {
         arr[i] = rand() % (max - min + 1) + min;
     }
 }
@@ -207,7 +213,7 @@ void print_arr(const int *arr, const size_t len) {
 
 int sum_1dig(const int *arr, const size_t len) {
     int sum = 0;
-    for (int i = 0; i < len; i++) {
+    for (size_t i = 0; i < len; i++) {
         int num = arr[i];
         if (num < 0) num = -num;
         if (num <= 9) {
