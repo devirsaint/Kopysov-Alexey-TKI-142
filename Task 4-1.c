@@ -149,6 +149,10 @@ int main(void) {
         case find_last_pair_: {
             last_pair(arr, len);
         }
+        default: {
+            free(arr);
+            return 1;
+        }
     }
 
     return 0;
