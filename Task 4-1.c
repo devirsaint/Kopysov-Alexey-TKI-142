@@ -195,7 +195,8 @@ void fill_random(const size_t len, int *arr) {
 
     if (min > max) {
         fprintf(stderr, "Error: min > max\n");
-        return;
+        free(arr);
+        exit(1);
     }
     
     printf("Диапазон [%d; %d]...\n", min, max);
