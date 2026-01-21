@@ -127,7 +127,6 @@ int main(void) {
             free(arr);
             return 1;
         }
-
     }
     printf("\nСформированный массив:\n");
     print_arr(arr, len);
@@ -172,6 +171,7 @@ void is_array(const int *arr) {
 }
 
 void fill_manual(const size_t len, int *array) {
+    is_array(array);
     printf("Введите каждый элемент массива (%d):\n", len);
     for (size_t i = 0; i < len; i++) {
         printf("Элемент %d: ", i);
@@ -180,6 +180,7 @@ void fill_manual(const size_t len, int *array) {
 }
 
 void fill_random(const size_t len, int *arr) {
+    is_array(arr);
     printf("\nДиапазон для случайных чисел\n");
 
     printf("\nМинимальное значение:\n");
@@ -201,6 +202,7 @@ void fill_random(const size_t len, int *arr) {
 }
 
 void print_arr(const int *arr, const size_t len) {
+    is_array(arr);
     printf("[");
     if (len > 0) {
         printf("%d", arr[0]);
@@ -212,6 +214,7 @@ void print_arr(const int *arr, const size_t len) {
 }
 
 int sum_1dig(const int *arr, const size_t len) {
+    is_array(arr)
     int sum = 0;
     for (size_t i = 0; i < len; i++) {
         int num = arr[i];
@@ -225,29 +228,33 @@ int sum_1dig(const int *arr, const size_t len) {
 }
 
 int last_pair(const int *arr, const size_t len) {
-  printf("Введите число, по которому будет производиться поиск пары\n");
-  int num = get_val();
-  if (num < 0) {
-    fprintf(stderr, "Введеное число < 0, должно быть > 0\n");
-    exit(1);
-  }
-  for (size_t i = len - 1; i > 0; i--) {
-    if ((arr[i] * arr[i - 1] < num) &&
-        ((arr[i] < 0 && arr[i - 1] < 0) || (arr[i] > 0 && arr[i - 1] > 0))) {
-      return i;
+    is_array(arr);
+    printf("Введите число, по которому будет производиться поиск пары\n");
+    int num = get_val();
+    if (num < 0) {
+        fprintf(stderr, "Введеное число < 0, должно быть > 0\n");
+        exit(1);
     }
-  }
-  printf("Такой пары нет\n");
-  return -1;
+    for (size_t i = len - 1; i > 0; i--) {
+        if ((arr[i] * arr[i - 1] < num) &&
+            ((arr[i] < 0 && arr[i - 1] < 0) || (arr[i] > 0 && arr[i - 1] > 0))) {
+        return i;
+        }
+    }
+    printf("Такой пары нет\n");
+    return -1;
 }
 
 void copy_paste_arr(int *copied_arr, const int *pasted_arr, const size_t len) {
-  for (size_t i = 0; i < len; i++) {
-    copied_arr[i] = pasted_arr[i];
-  }
+    is_array(copied_arr);
+    is_array(pasted_arr);
+    for (size_t i = 0; i < len; i++) {
+        copied_arr[i] = pasted_arr[i];
+    }
 }
 
 void reverse_arr(int *arr, const size_t len) {
+    is_array(arr);
     if (len < 3) {
         fprintf(stderr, "В массиве недостаточно элементов для замены элементов");
         exit(1);
@@ -255,6 +262,7 @@ void reverse_arr(int *arr, const size_t len) {
     }
 
     int *sec_arr = (int*)malloc(sizeof(int) * len);
+    is_array(sec_arr);
     copy_paste_arr(sec_arr, arr, len);
     int min_i = 0;
     int max_i = 0;
